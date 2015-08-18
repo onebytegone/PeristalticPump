@@ -1,6 +1,6 @@
 # Peristaltic Pump
 
-I have been wanting a inexpensive peristaltic pump for a while. This is a basic mechanical engineering project to design and build one.
+I have been wanting an inexpensive peristaltic pump for a while. This is a basic mechanical engineering project to design and build one.
 
 
 ## Requirements
