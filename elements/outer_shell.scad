@@ -2,9 +2,22 @@ include <../parameters.scad>;
 
 module outer_shell() {
    difference() {
-      HalfCylinder(OuterWidth, ShellTotalThickness);
-      translate([0, 0, ShellBaseThickness]) HalfCylinder(OuterHoseEdge, ShellLipHeight + Overlap);
+      shellAssembly();
+      translate([0, 0, -Overlap]) cylinder(ShellBaseThickness + (Overlap * 2), AxelDiameter/2, AxelDiameter/2);
    }
+}
+
+module shellAssembly() {
+   difference() {
+      HalfCylinder(OuterWidth, ShellTotalThickness);
+      translate([0, 0, ShellBaseThickness]) coreShape(OuterHoseEdge, OuterHeight, ShellLipHeight + Overlap);
+   }
+   assign(size = OuterHeight - (OuterWidth / 2)) translate([-OuterWidth / 2, - size]) cube([OuterWidth, size +  Overlap, ShellBaseThickness]);
+}
+
+module coreShape(width, height, thickness) {
+   HalfCylinder(width, thickness);
+   assign(size = height - (width / 2)) translate([-width / 2, - size]) cube([width, size +  Overlap, thickness]);
 }
 
 module HalfCylinder(size, thickness) {

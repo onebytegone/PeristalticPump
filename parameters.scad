@@ -36,6 +36,21 @@ ShellBaseThickness = 2;
  */
 ShellLipHeight = HoseOD;
 
+/**
+ * Thickness for the back wall for the outer shell
+ */
+ShellLipThickness = 4;
+
+/**
+ * Length for the base support tab
+ */
+OuterHeight = PumpDiameter;
+
+/**
+ * Diameter for the axel
+ */
+AxelDiameter = 3;
+
 
 /*------------------------
  * RENDERING
@@ -58,7 +73,7 @@ Overlap = 0.1;
  * | WALL | 1/2 of HOSE |  PumpDiameter | 1/2 of HOSE | WALL |
  */
 OuterHoseEdge = PumpDiameter + HoseOD;
-OuterWidth = OuterHoseEdge + (WallThickness * 2);
+OuterWidth = OuterHoseEdge + (ShellLipThickness * 2);
 
 /**
  * Entire height for the outer shell
