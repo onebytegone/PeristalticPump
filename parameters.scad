@@ -79,3 +79,18 @@ OuterWidth = OuterHoseEdge + (ShellLipThickness * 2);
  * Entire height for the outer shell
  */
 ShellTotalThickness = ShellBaseThickness + ShellLipHeight;
+
+/**
+ * The total length for the propeller
+ */
+PropellerLength = OuterHoseEdge - HoseCompressedThickness * 2;
+
+/**
+ * The width for the propeller
+ */
+PropellerWidth = AxelDiameter + ShellBaseThickness * 2;
+
+/**
+ * The thickness for the propeller
+ */
+PropellerThickness = ShellLipHeight;
