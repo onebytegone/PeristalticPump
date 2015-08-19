@@ -51,6 +51,11 @@ SupportTabLength = 9;
  */
 AxelDiameter = 3;
 
+/**
+ * General corner radius
+ */
+CornerRadius = 3;
+
 
 /*------------------------
  * RENDERING

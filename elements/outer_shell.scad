@@ -1,4 +1,5 @@
 include <../parameters.scad>;
+include <../thirdparty/CornerCutout.scad>;
 
 module outer_shell() {
    difference() {
@@ -15,7 +16,12 @@ module shellAssembly() {
          translate([-OuterHoseEdge / 2, -Overlap]) cube([OuterHoseEdge, Overlap * 2, cutoutThickness]);
       }
    }
-   translate([-OuterWidth / 2, -SupportTabLength]) cube([OuterWidth, SupportTabLength + Overlap, ShellBaseThickness]);
+
+   translate([-OuterWidth / 2, -SupportTabLength]) difference() {
+      cube([OuterWidth, SupportTabLength + Overlap, ShellBaseThickness]);
+      CornerCutout(CORNER_SW, ShellBaseThickness, CornerRadius);
+      translate([OuterWidth, 0]) CornerCutout(CORNER_SE, ShellBaseThickness, CornerRadius);
+   }
 }
 
 module HalfCylinder(size, thickness) {
