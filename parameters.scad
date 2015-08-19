@@ -18,7 +18,7 @@ HoseCompressedThickness = 3;
 /**
  * The basic wall thickness to abide by
  */
-WallThickness = 2;
+WallThickness = 1.2;
 
 /**
  * The distance from center to center of
@@ -49,7 +49,7 @@ SupportTabLength = 9;
 /**
  * Diameter for the axel
  */
-AxelDiameter = 3;
+AxelDiameter = 4;  // Approx size of #8 bolt
 
 /**
  * General corner radius
