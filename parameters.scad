@@ -93,7 +93,7 @@ PropellerLength = OuterHoseEdge - HoseCompressedThickness * 2;
 /**
  * The width for the propeller
  */
-PropellerWidth = AxelDiameter + ShellBaseThickness * 2;
+PropellerWidth = AxelDiameter + WallThickness * 2;
 
 /**
  * The thickness for the propeller
