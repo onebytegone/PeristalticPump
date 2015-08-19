@@ -10,14 +10,12 @@ module outer_shell() {
 module shellAssembly() {
    difference() {
       HalfCylinder(OuterWidth, ShellTotalThickness);
-      translate([0, 0, ShellBaseThickness]) coreShape(OuterHoseEdge, OuterHeight, ShellLipHeight + Overlap);
+      translate([0, 0, ShellBaseThickness]) assign(cutoutThickness = ShellLipHeight + Overlap) {
+         HalfCylinder(OuterHoseEdge, cutoutThickness);
+         translate([-OuterHoseEdge / 2, -Overlap]) cube([OuterHoseEdge, Overlap * 2, cutoutThickness]);
+      }
    }
-   assign(size = OuterHeight - (OuterWidth / 2)) translate([-OuterWidth / 2, - size]) cube([OuterWidth, size +  Overlap, ShellBaseThickness]);
-}
-
-module coreShape(width, height, thickness) {
-   HalfCylinder(width, thickness);
-   assign(size = height - (width / 2)) translate([-width / 2, - size]) cube([width, size +  Overlap, thickness]);
+   translate([-OuterWidth / 2, -SupportTabLength]) cube([OuterWidth, SupportTabLength + Overlap, ShellBaseThickness]);
 }
 
 module HalfCylinder(size, thickness) {

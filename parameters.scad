@@ -44,7 +44,7 @@ ShellLipThickness = 4;
 /**
  * Length for the base support tab
  */
-OuterHeight = PumpDiameter;
+SupportTabLength = 9;
 
 /**
  * Diameter for the axel
