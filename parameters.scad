@@ -13,7 +13,8 @@ HoseOD = 5;
 /**
  * Size to which the hose should be compressed to
  */
-HoseCompressedThickness = 3;
+HoseCompressedThickness = 2.5;
+
 
 /**
  * The basic wall thickness to abide by
@@ -34,7 +35,7 @@ ShellBaseThickness = 2;
 /**
  * Height for the lip supporting the hose
  */
-ShellLipHeight = HoseOD;
+ShellLipHeight = 8;
 
 /**
  * Thickness for the back wall for the outer shell
@@ -49,7 +50,7 @@ SupportTabLength = 9;
 /**
  * Diameter for the axel
  */
-AxelDiameter = 4;  // Approx size of #8 bolt
+AxelDiameter = 3.5;  // Approx size of #6 bolt
 
 /**
  * General corner radius
