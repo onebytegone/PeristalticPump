@@ -5,6 +5,23 @@
  * Created 2015-08-18 by Ethan Smith
  */
 
+
+/*------------------------
+ * HARDWARE
+ *----------------------*/
+
+/**
+ * Sizing for a #6 bolt or equivalent
+ */
+SmallBoltDiameter = 3.5;
+SmallBoltCountersinkEndDiameter = 7.3;
+SmallBoltCountersinkDepth = 2.3;
+
+
+/*------------------------
+ * FIXED MODEL SIZES
+ *----------------------*/
+
 /**
  * Outside diameter for the hose/tubing
  */
@@ -50,7 +67,7 @@ SupportTabLength = 9;
 /**
  * Diameter for the axel
  */
-AxelDiameter = 3.5;  // Approx size of #6 bolt
+AxelDiameter = SmallBoltDiameter;
 
 /**
  * General corner radius
@@ -60,7 +77,7 @@ CornerRadius = 3;
 /**
  * Bolt to hold roller
  */
-RollerBolt = 3.5;  // Approx size of #6 bolt
+RollerBolt = SmallBoltDiameter;
 
 /**
  * Outside diameter for roller
