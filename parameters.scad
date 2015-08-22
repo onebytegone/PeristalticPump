@@ -13,7 +13,7 @@ HoseOD = 5;
 /**
  * Size to which the hose should be compressed to
  */
-HoseCompressedThickness = 2.5;
+HoseCompressedThickness = 1.5;
 
 
 /**
