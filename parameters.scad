@@ -96,6 +96,21 @@ RollerThickness = 8;
  */
 RollerSmooth = 30;
 
+/**
+ * The thickness for the propeller arms
+ */
+PropellerBacking = 3;
+
+/**
+ * $fn used for the propeller
+ */
+PropellerSmooth = 30;
+
+/**
+ * The wall thickness for the propeller
+ */
+PropellerMinWall = 2;
+
 
 /*------------------------
  * RENDERING
@@ -128,14 +143,19 @@ ShellTotalThickness = ShellBaseThickness + ShellLipHeight;
 /**
  * The total length for the propeller
  */
-PropellerLength = OuterHoseEdge - HoseCompressedThickness * 2;
+PropellerTotalLength = OuterHoseEdge - HoseCompressedThickness * 2;
+
+/**
+ * The distance from the centers of the bolts for oppisate  for the propeller
+ */
+PropellerRollerDistance = PropellerTotalLength - RollerOD;
 
 /**
  * The width for the propeller
  */
-PropellerWidth = AxelDiameter + WallThickness * 2;
+PropellerWidth = AxelDiameter + PropellerMinWall * 2;
 
 /**
  * The thickness for the propeller
  */
-PropellerThickness = ShellLipHeight;
+PropellerCenterThickness = RollerThickness + PropellerBacking;
