@@ -78,16 +78,18 @@ CornerRadius = 3;
  * Bolt to hold roller
  */
 RollerBolt = SmallBoltDiameter;
+RollerBoltCountersinkEndDiameter = SmallBoltCountersinkEndDiameter;
+RollerBoltCountersinkDepth = SmallBoltCountersinkDepth;
 
 /**
  * Outside diameter for roller
  */
-RollerOD = 9;
+RollerOD = 11;
 
 /**
  * Height/Thickness for roller
  */
-RollerThickness = 5;
+RollerThickness = 8;
 
 /**
  * $fn used for the roller bolt and outside
