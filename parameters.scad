@@ -57,6 +57,26 @@ AxelDiameter = 3.5;  // Approx size of #6 bolt
  */
 CornerRadius = 3;
 
+/**
+ * Bolt to hold roller
+ */
+RollerBolt = 3.5;  // Approx size of #6 bolt
+
+/**
+ * Outside diameter for roller
+ */
+RollerOD = 9;
+
+/**
+ * Height/Thickness for roller
+ */
+RollerThickness = 5;
+
+/**
+ * $fn used for the roller bolt and outside
+ */
+RollerSmooth = 30;
+
 
 /*------------------------
  * RENDERING
