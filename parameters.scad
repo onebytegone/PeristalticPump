@@ -32,7 +32,6 @@ HoseOD = 5;
  */
 HoseCompressedThickness = 1.5;
 
-
 /**
  * The basic wall thickness to abide by
  */
@@ -143,6 +142,11 @@ PropellerMinWall = 2.8;
 PropellerSupport = 3;
 
 /**
+ * Height for the cap's lip
+ */
+ShellCapExtraLip = 6.5;
+
+/**
  * The general $fn to be used for edge smoothing
  */
 EdgeSmooth = 20;
@@ -222,3 +226,8 @@ PropellerCenterThickness = RollerThickness + PropellerBacking;
  * Diameter for the cutout for the propeller retainer plate
  */
 ShellPropellerCutoutDiameter = PropellerRollerDistance + PropellerWidth + ShellPropellerBuffer * 2;
+
+/**
+ * Total height for the shell cap
+ */
+ShellCapThickness = ShellCapExtraLip + ShellBaseThickness;

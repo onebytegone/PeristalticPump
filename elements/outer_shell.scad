@@ -9,6 +9,34 @@ module outer_shell() {
    }
 }
 
+module outer_shell_cap() {
+   difference() {
+      union() {
+         translate([0,0,ShellPerimeterEdgeRadius]) cylinder(ShellCapThickness - ShellPerimeterEdgeRadius, OuterWidth/2, OuterWidth/2);
+         cylinder(ShellPerimeterEdgeRadius, OuterWidth / 2 - ShellPerimeterEdgeRadius, OuterWidth / 2 - ShellPerimeterEdgeRadius);
+         cylinder(ShellPerimeterEdgeRadius, OuterWidth / 2 - ShellPerimeterEdgeRadius, OuterWidth / 2 - ShellPerimeterEdgeRadius);
+         translate([0,0,ShellPerimeterEdgeRadius]) rotate_extrude(convexity = 10) translate([OuterWidth / 2 - ShellPerimeterEdgeRadius, 0]) circle(r = ShellPerimeterEdgeRadius);
+      }
+
+      translate([0,0, - Overlap]) cylinder(ShellCapThickness + Overlap * 2, ShellPropellerCutoutDiameter/2, ShellPropellerCutoutDiameter/2);
+   }
+
+   // Tabs
+   difference() {
+      union() {
+         rotate([0,0,180]) mountingTab(OuterWidth/2, ShellCapThickness);
+         rotate([0,0,SecondaryMountingTabAngle/2]) mountingTab(OuterWidth/2, ShellCapThickness);
+         rotate([0,0,-SecondaryMountingTabAngle/2]) mountingTab(OuterWidth/2, ShellCapThickness);
+      }
+      translate([0, 0, -Overlap]) cylinder(ShellCapThickness - PropellerBacking + (Overlap * 2), AxelDiameter/2, AxelDiameter/2);
+
+      difference() {
+         translate([0,0, ShellBaseThickness]) cylinder(ShellCapExtraLip + Overlap, ShellPropellerCutoutDiameter/2, ShellPropellerCutoutDiameter/2);
+         translate([0,0, - Overlap]) cylinder(ShellTotalThickness + Overlap * 2, MountingTabSize/2, MountingTabSize/2);
+      }
+   }
+}
+
 module shellAssembly() {
    difference() {
       union() {
