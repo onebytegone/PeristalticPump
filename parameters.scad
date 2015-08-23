@@ -52,7 +52,7 @@ ShellBaseThickness = 2.3;
 /**
  * Height for the channel supporting the hose
  */
-ChannelHeight = 8;
+ChannelHeight = 9.5;
 
 /**
  * Thickness for the back wall for the outer shell
