@@ -47,17 +47,28 @@ PumpDiameter = 35;
 /**
  * Thickness for the bottom of the outer shell
  */
-ShellBaseThickness = 2;
+ShellBaseThickness = 2.3;
 
 /**
- * Height for the lip supporting the hose
+ * Height for the channel supporting the hose
  */
-ShellLipHeight = 8;
+ChannelHeight = 8;
 
 /**
  * Thickness for the back wall for the outer shell
  */
 ShellLipThickness = 4;
+
+/**
+ * Angle used to set the length of the gap in
+ * the wall for the tubing to come out
+ */
+ShellCutoutAngle = 50;
+
+/**
+ * The radius for the the outer edges for the shell
+ */
+ShellPerimeterEdgeRadius = 1;
 
 /**
  * Length for the base support tab
@@ -111,6 +122,11 @@ PropellerSmooth = 30;
  */
 PropellerMinWall = 2;
 
+/**
+ * The general $fn to be used for edge smoothing
+ */
+EdgeSmooth = 20;
+
 
 /*------------------------
  * RENDERING
@@ -138,7 +154,18 @@ OuterWidth = OuterHoseEdge + (ShellLipThickness * 2);
 /**
  * Entire height for the outer shell
  */
-ShellTotalThickness = ShellBaseThickness + ShellLipHeight;
+ShellTotalThickness = ShellBaseThickness + ChannelHeight;
+
+/**
+ * How far the angled cutout needs to extend
+ */
+ShellCutoutRadius = OuterWidth / 2 + Overlap;
+
+/**
+ * How far to the side the cutout is offset by to get
+ * the correct angle opening
+ */
+ShellCutoutSideShift = ShellCutoutRadius * (tan(ShellCutoutAngle / 2));
 
 /**
  * The total length for the propeller

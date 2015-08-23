@@ -10,18 +10,21 @@ module outer_shell() {
 
 module shellAssembly() {
    difference() {
-      HalfCylinder(OuterWidth, ShellTotalThickness);
-      translate([0, 0, ShellBaseThickness]) assign(cutoutThickness = ShellLipHeight + Overlap) {
-         HalfCylinder(OuterHoseEdge, cutoutThickness);
-         translate([-OuterHoseEdge / 2, -Overlap]) cube([OuterHoseEdge, Overlap * 2, cutoutThickness]);
+      union() {
+         translate([0,0,ShellPerimeterEdgeRadius]) cylinder(ShellTotalThickness - ShellPerimeterEdgeRadius, OuterWidth/2, OuterWidth/2);
+         cylinder(ShellPerimeterEdgeRadius, OuterWidth / 2 - ShellPerimeterEdgeRadius, OuterWidth / 2 - ShellPerimeterEdgeRadius);
+         translate([0,0,ShellPerimeterEdgeRadius]) rotate_extrude(convexity = 10) translate([OuterWidth / 2 - ShellPerimeterEdgeRadius, 0]) circle(r = ShellPerimeterEdgeRadius);
+      }
+
+      translate([0,0,ShellTotalThickness - ChannelHeight]) {
+         cylinder(ChannelHeight + Overlap, OuterHoseEdge/2, OuterHoseEdge/2);
+         linear_extrude(height = ChannelHeight + Overlap) polygon(points=[[0,0],[-ShellCutoutSideShift,ShellCutoutRadius],[ShellCutoutSideShift,ShellCutoutRadius]]);
       }
    }
 
-   translate([-OuterWidth / 2, -SupportTabLength]) difference() {
-      cube([OuterWidth, SupportTabLength + Overlap, ShellBaseThickness]);
-      CornerCutout(CORNER_SW, ShellBaseThickness, CornerRadius);
-      translate([OuterWidth, 0]) CornerCutout(CORNER_SE, ShellBaseThickness, CornerRadius);
-   }
+
+   rotate([0, 0, ShellCutoutAngle / 2]) translate([0, OuterWidth / 2 - ShellLipThickness/2, ShellTotalThickness - ChannelHeight]) cylinder(ChannelHeight, ShellLipThickness/2, ShellLipThickness/2, $fn = EdgeSmooth);
+   rotate([0, 0, -ShellCutoutAngle / 2]) translate([0, OuterWidth / 2 - ShellLipThickness/2, ShellTotalThickness - ChannelHeight]) cylinder(ChannelHeight, ShellLipThickness/2, ShellLipThickness/2, $fn = EdgeSmooth);
 }
 
 module HalfCylinder(size, thickness) {
