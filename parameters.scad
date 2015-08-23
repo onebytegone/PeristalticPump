@@ -47,7 +47,7 @@ PumpDiameter = 35;
 /**
  * Thickness for the bottom of the outer shell
  */
-ShellBaseThickness = 2.3;
+ShellBaseThickness = 2;
 
 /**
  * Height for the channel supporting the hose
@@ -57,7 +57,7 @@ ChannelHeight = 9.5;
 /**
  * Thickness for the back wall for the outer shell
  */
-ShellLipThickness = 4;
+ShellLipThickness = 3;
 
 /**
  * Angle used to set the length of the gap in
@@ -83,7 +83,7 @@ MountingTabBoltDiameter = SmallBoltDiameter;
 /**
  * Wall thickness for mounting tabs
  */
-MountingTabWallThickness = 2;
+MountingTabWallThickness = 2.2;
 
 /**
  * Angle for mounting tabs by gap
