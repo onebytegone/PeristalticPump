@@ -5,6 +5,7 @@ module outer_shell() {
    difference() {
       shellAssembly();
       translate([0, 0, -Overlap]) cylinder(ShellBaseThickness + (Overlap * 2), AxelDiameter/2, AxelDiameter/2);
+      translate([0, 0, ShellBaseThickness]) cylinder(PropellerSupport + Overlap, ShellPropellerCutoutDiameter/2, ShellPropellerCutoutDiameter/2);
    }
 }
 

@@ -71,6 +71,11 @@ ShellCutoutAngle = 50;
 ShellPerimeterEdgeRadius = 1;
 
 /**
+ * The extra between the propeller supports and the shell
+ */
+ShellPropellerBuffer = 0.5;
+
+/**
  * Length for the base support tab
  */
 SupportTabLength = 9;
@@ -120,7 +125,12 @@ PropellerSmooth = 30;
 /**
  * The wall thickness for the propeller
  */
-PropellerMinWall = 2;
+PropellerMinWall = 2.8;
+
+/**
+ * The thickness for the propeller retaining plate
+ */
+PropellerSupport = 3;
 
 /**
  * The general $fn to be used for edge smoothing
@@ -152,9 +162,15 @@ OuterHoseEdge = PumpDiameter + HoseOD;
 OuterWidth = OuterHoseEdge + (ShellLipThickness * 2);
 
 /**
+ * Thickness for the shell that includes outer wall and
+ * the inset for the propeller
+ */
+ShellCoreThickness = ShellBaseThickness + PropellerSupport;
+
+/**
  * Entire height for the outer shell
  */
-ShellTotalThickness = ShellBaseThickness + ChannelHeight;
+ShellTotalThickness = ShellCoreThickness + ChannelHeight;
 
 /**
  * How far the angled cutout needs to extend
@@ -186,3 +202,8 @@ PropellerWidth = AxelDiameter + PropellerMinWall * 2;
  * The thickness for the propeller
  */
 PropellerCenterThickness = RollerThickness + PropellerBacking;
+
+/**
+ * Diameter for the cutout for the propeller retainer plate
+ */
+ShellPropellerCutoutDiameter = PropellerRollerDistance + PropellerWidth + ShellPropellerBuffer * 2;
