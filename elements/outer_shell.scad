@@ -15,6 +15,11 @@ module shellAssembly() {
          translate([0,0,ShellPerimeterEdgeRadius]) cylinder(ShellTotalThickness - ShellPerimeterEdgeRadius, OuterWidth/2, OuterWidth/2);
          cylinder(ShellPerimeterEdgeRadius, OuterWidth / 2 - ShellPerimeterEdgeRadius, OuterWidth / 2 - ShellPerimeterEdgeRadius);
          translate([0,0,ShellPerimeterEdgeRadius]) rotate_extrude(convexity = 10) translate([OuterWidth / 2 - ShellPerimeterEdgeRadius, 0]) circle(r = ShellPerimeterEdgeRadius);
+
+         // Tabs
+         rotate([0,0,180]) mountingTab(OuterWidth/2, ShellTotalThickness);
+         rotate([0,0,SecondaryMountingTabAngle/2]) mountingTab(OuterWidth/2, ShellTotalThickness);
+         rotate([0,0,-SecondaryMountingTabAngle/2]) mountingTab(OuterWidth/2, ShellTotalThickness);
       }
 
       translate([0,0,ShellTotalThickness - ChannelHeight]) {
@@ -28,14 +33,12 @@ module shellAssembly() {
    rotate([0, 0, -ShellCutoutAngle / 2]) translate([0, OuterWidth / 2 - ShellLipThickness/2, ShellTotalThickness - ChannelHeight]) cylinder(ChannelHeight, ShellLipThickness/2, ShellLipThickness/2, $fn = EdgeSmooth);
 }
 
-module HalfCylinder(size, thickness) {
-   assign(halfWidth = size / 2)
+module mountingTab(length, thickness) {
+   width = MountingTabSize;
    difference() {
-      cylinder(thickness, size/2, size/2);
-      assign(outerHalfWidth = halfWidth + Overlap) translate([-outerHalfWidth, -outerHalfWidth, -Overlap]) cube([
-         outerHalfWidth * 2,
-         outerHalfWidth,
-         ShellTotalThickness + (Overlap * 2)
-      ]);
+      translate([-width/2,0]) cube([width, length + MountingTabSize, thickness]);
+      translate([-width/2, length + MountingTabSize]) CornerCutout(CORNER_NE, thickness, CornerRadius);
+      translate([width/2, length + MountingTabSize]) CornerCutout(CORNER_NW, thickness, CornerRadius);
+      translate([0, length + MountingTabSize/2, -Overlap]) cylinder(thickness + Overlap*2, MountingTabBoltDiameter/2, MountingTabBoltDiameter/2);
    }
 }

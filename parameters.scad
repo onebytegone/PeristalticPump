@@ -76,6 +76,21 @@ ShellPerimeterEdgeRadius = 1;
 ShellPropellerBuffer = 0.5;
 
 /**
+ * Mounting tab bolt size
+ */
+MountingTabBoltDiameter = SmallBoltDiameter;
+
+/**
+ * Wall thickness for mounting tabs
+ */
+MountingTabWallThickness = 2;
+
+/**
+ * Angle for mounting tabs by gap
+ */
+SecondaryMountingTabAngle = 120;
+
+/**
  * Diameter for the axel
  */
 AxelDiameter = SmallBoltDiameter;
@@ -177,6 +192,11 @@ ShellCutoutRadius = OuterWidth / 2 + Overlap;
  * the correct angle opening
  */
 ShellCutoutSideShift = ShellCutoutRadius * (tan(ShellCutoutAngle / 2));
+
+/**
+ * Width and Length for the mounting tab
+ */
+MountingTabSize = MountingTabBoltDiameter + MountingTabWallThickness * 2;
 
 /**
  * The total length for the propeller
