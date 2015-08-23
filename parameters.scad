@@ -76,11 +76,6 @@ ShellPerimeterEdgeRadius = 1;
 ShellPropellerBuffer = 0.5;
 
 /**
- * Length for the base support tab
- */
-SupportTabLength = 9;
-
-/**
  * Diameter for the axel
  */
 AxelDiameter = SmallBoltDiameter;
